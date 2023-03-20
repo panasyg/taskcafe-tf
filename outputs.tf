@@ -1,19 +1,18 @@
-output "project_id" {
-  description = "The project ID where app engine is created"
-  value       = module.app-engine-project.project_id
-}
+# output "url" {
+#   description = "The URL where the Cloud Run Service can be accessed."
+#   value       = google_cloud_run_service.service.status[0].url
+# }
 
-output "app_name" {
-  description = "Unique name of the app, usually apps/{PROJECT_ID}."
-  value       = module.app-engine.name
-}
+# output "trigger_id" {
+#   description = "The unique identifier for the Cloud Build trigger."
+#   value       = google_cloudbuild_trigger.cloud_build_trigger.trigger_id
+# }
 
-output "default_hostname" {
-  description = "The default hostname for this app."
-  value       = module.app-engine.default_hostname
-}
+# output "repository_http_url" {
+#   description = "HTTP URL of the repository in Cloud Source Repositories."
+#   value       = google_sourcerepo_repository.repo.url
+# }
 
-output "location_id" {
-  description = "The location app engine is serving from"
-  value       = module.app-engine.location_id
+output "url" {
+  value = "http://${module.lb-http.external_ip}"
 }
